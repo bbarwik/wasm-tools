@@ -122,8 +122,8 @@ instructions! {
     // Memory instructions.
     (Some(have_memory_and_offset), i32_load, Memory),
     (Some(have_memory_and_offset), i64_load, Memory),
-    (Some(have_memory_and_offset), f32_load, Memory),
-    (Some(have_memory_and_offset), f64_load, Memory),
+    //(Some(have_memory_and_offset), f32_load, Memory),
+    //(Some(have_memory_and_offset), f64_load, Memory),
     (Some(have_memory_and_offset), i32_load_8_s, Memory),
     (Some(have_memory_and_offset), i32_load_8_u, Memory),
     (Some(have_memory_and_offset), i32_load_16_s, Memory),
@@ -136,8 +136,8 @@ instructions! {
     (Some(have_memory_and_offset), i64_load_32_u, Memory),
     (Some(i32_store_valid), i32_store, Memory),
     (Some(i64_store_valid), i64_store, Memory),
-    (Some(f32_store_valid), f32_store, Memory),
-    (Some(f64_store_valid), f64_store, Memory),
+    //(Some(f32_store_valid), f32_store, Memory),
+    //(Some(f64_store_valid), f64_store, Memory),
     (Some(i32_store_valid), i32_store_8, Memory),
     (Some(i32_store_valid), i32_store_16, Memory),
     (Some(i64_store_valid), i64_store_8, Memory),
@@ -152,8 +152,8 @@ instructions! {
     // Numeric instructions.
     (None, i32_const, Numeric),
     (None, i64_const, Numeric),
-    (None, f32_const, Numeric),
-    (None, f64_const, Numeric),
+    //(None, f32_const, Numeric),
+    //(None, f64_const, Numeric),
     (Some(i32_on_stack), i32_eqz, Numeric),
     (Some(i32_i32_on_stack), i32_eq, Numeric),
     (Some(i32_i32_on_stack), i32_ne, Numeric),
@@ -176,6 +176,7 @@ instructions! {
     (Some(i64_i64_on_stack), i64_le_u, Numeric),
     (Some(i64_i64_on_stack), i64_ge_s, Numeric),
     (Some(i64_i64_on_stack), i64_ge_u, Numeric),
+    /*
     (Some(f32_f32_on_stack), f32_eq, Numeric),
     (Some(f32_f32_on_stack), f32_ne, Numeric),
     (Some(f32_f32_on_stack), f32_lt, Numeric),
@@ -188,6 +189,7 @@ instructions! {
     (Some(f64_f64_on_stack), f64_gt, Numeric),
     (Some(f64_f64_on_stack), f64_le, Numeric),
     (Some(f64_f64_on_stack), f64_ge, Numeric),
+    */
     (Some(i32_on_stack), i32_clz, Numeric),
     (Some(i32_on_stack), i32_ctz, Numeric),
     (Some(i32_on_stack), i32_popcnt, Numeric),
@@ -224,6 +226,7 @@ instructions! {
     (Some(i64_i64_on_stack), i64_shr_u, Numeric),
     (Some(i64_i64_on_stack), i64_rotl, Numeric),
     (Some(i64_i64_on_stack), i64_rotr, Numeric),
+    /*
     (Some(f32_on_stack), f32_abs, Numeric),
     (Some(f32_on_stack), f32_neg, Numeric),
     (Some(f32_on_stack), f32_ceil, Numeric),
@@ -252,13 +255,15 @@ instructions! {
     (Some(f64_f64_on_stack), f64_min, Numeric),
     (Some(f64_f64_on_stack), f64_max, Numeric),
     (Some(f64_f64_on_stack), f64_copysign, Numeric),
+    */
     (Some(i64_on_stack), i32_wrap_i64, Numeric),
-    (Some(f32_on_stack), i32_trunc_f32_s, Numeric),
-    (Some(f32_on_stack), i32_trunc_f32_u, Numeric),
-    (Some(f64_on_stack), i32_trunc_f64_s, Numeric),
-    (Some(f64_on_stack), i32_trunc_f64_u, Numeric),
+    //(Some(f32_on_stack), i32_trunc_f32_s, Numeric),
+    //(Some(f32_on_stack), i32_trunc_f32_u, Numeric),
+    //(Some(f64_on_stack), i32_trunc_f64_s, Numeric),
+    //(Some(f64_on_stack), i32_trunc_f64_u, Numeric),
     (Some(i32_on_stack), i64_extend_i32_s, Numeric),
     (Some(i32_on_stack), i64_extend_i32_u, Numeric),
+    /*
     (Some(f32_on_stack), i64_trunc_f32_s, Numeric),
     (Some(f32_on_stack), i64_trunc_f32_u, Numeric),
     (Some(f64_on_stack), i64_trunc_f64_s, Numeric),
@@ -277,11 +282,13 @@ instructions! {
     (Some(f64_on_stack), i64_reinterpret_f64, Numeric),
     (Some(i32_on_stack), f32_reinterpret_i32, Numeric),
     (Some(i64_on_stack), f64_reinterpret_i64, Numeric),
+    */
     (Some(extendable_i32_on_stack), i32_extend_8_s, Numeric),
     (Some(extendable_i32_on_stack), i32_extend_16_s, Numeric),
     (Some(extendable_i64_on_stack), i64_extend_8_s, Numeric),
     (Some(extendable_i64_on_stack), i64_extend_16_s, Numeric),
     (Some(extendable_i64_on_stack), i64_extend_32_s, Numeric),
+    /*
     (Some(nontrapping_f32_on_stack), i32_trunc_sat_f32_s, Numeric),
     (Some(nontrapping_f32_on_stack), i32_trunc_sat_f32_u, Numeric),
     (Some(nontrapping_f64_on_stack), i32_trunc_sat_f64_s, Numeric),
@@ -290,6 +297,7 @@ instructions! {
     (Some(nontrapping_f32_on_stack), i64_trunc_sat_f32_u, Numeric),
     (Some(nontrapping_f64_on_stack), i64_trunc_sat_f64_s, Numeric),
     (Some(nontrapping_f64_on_stack), i64_trunc_sat_f64_u, Numeric),
+    */
     // reference types proposal
     (Some(ref_null_valid), ref_null, Reference),
     (Some(ref_func_valid), ref_func, Reference),

@@ -562,10 +562,10 @@ impl Module {
                         let im = im.expect("could not read import");
                         // We can immediately filter whether this is an import we want to
                         // use.
-                        let use_import = u.arbitrary().unwrap_or(false);
-                        if !use_import {
-                            continue;
-                        }
+                        //let use_import = u.arbitrary().unwrap_or(false);
+                        //if !use_import {
+                        //    continue;
+                        //}
                         available_imports.push(im);
                     }
                 }
@@ -922,7 +922,7 @@ impl Module {
         // Build up a list of candidates for each class of import
         let mut choices: Vec<Vec<(ExportKind, u32)>> = Vec::with_capacity(6);
         choices.push(
-            (0..self.funcs.len())
+            ((self.funcs.len() - self.num_defined_funcs)..self.funcs.len())
                 .map(|i| (ExportKind::Func, i as u32))
                 .collect(),
         );
