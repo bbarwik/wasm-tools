@@ -1378,7 +1378,7 @@ pub(crate) fn arbitrary_limits64(
 
 pub(crate) fn configured_valtypes(config: &dyn Config) -> Vec<ValType> {
     let mut valtypes = Vec::with_capacity(7);
-    valtypes.push(ValType::I32);
+    //valtypes.push(ValType::I32);
     valtypes.push(ValType::I64);
     //valtypes.push(ValType::F32);
     //valtypes.push(ValType::F64);
@@ -1399,10 +1399,10 @@ pub(crate) fn arbitrary_func_type(
 ) -> Result<Rc<FuncType>> {
     let mut params = vec![];
     let mut results = vec![];
-    arbitrary_loop(u, 0, 20, |u| {
-        params.push(arbitrary_valtype(u, valtypes)?);
-        Ok(true)
-    })?;
+    //arbitrary_loop(u, 0, 20, |u| {
+    params.push(arbitrary_valtype(u, valtypes)?);
+    //    Ok(true)
+    //})?;
     arbitrary_loop(u, 0, max_results.unwrap_or(20), |u| {
         results.push(arbitrary_valtype(u, valtypes)?);
         Ok(true)
